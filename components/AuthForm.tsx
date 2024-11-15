@@ -17,7 +17,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { createAccount, signInUser } from "@/lib/actions/user.actions";
-import OtpModal from "@/components/OTPModal";
+import OtpModal from "./OtpModal";
 
 type FormType = "sign-in" | "sign-up";
 
@@ -81,7 +81,6 @@ const AuthForm = ({ type }: { type: FormType }) => {
                 <FormItem>
                   <div className="shad-form-item">
                     <FormLabel className="shad-form-label">Full Name</FormLabel>
-
                     <FormControl>
                       <Input
                         placeholder="Enter your full name"
@@ -90,13 +89,11 @@ const AuthForm = ({ type }: { type: FormType }) => {
                       />
                     </FormControl>
                   </div>
-
                   <FormMessage className="shad-form-message" />
                 </FormItem>
               )}
             />
           )}
-
           <FormField
             control={form.control}
             name="email"
@@ -104,7 +101,6 @@ const AuthForm = ({ type }: { type: FormType }) => {
               <FormItem>
                 <div className="shad-form-item">
                   <FormLabel className="shad-form-label">Email</FormLabel>
-
                   <FormControl>
                     <Input
                       placeholder="Enter your email"
@@ -113,7 +109,6 @@ const AuthForm = ({ type }: { type: FormType }) => {
                     />
                   </FormControl>
                 </div>
-
                 <FormMessage className="shad-form-message" />
               </FormItem>
             )}
@@ -124,7 +119,6 @@ const AuthForm = ({ type }: { type: FormType }) => {
             disabled={isLoading}
           >
             {type === "sign-in" ? "Sign In" : "Sign Up"}
-
             {isLoading && (
               <Image
                 src="/assets/icons/loader.svg"
@@ -135,9 +129,7 @@ const AuthForm = ({ type }: { type: FormType }) => {
               />
             )}
           </Button>
-
           {errorMessage && <p className="error-message">*{errorMessage}</p>}
-
           <div className="body-2 flex justify-center">
             <p className="text-light-100">
               {type === "sign-in"
